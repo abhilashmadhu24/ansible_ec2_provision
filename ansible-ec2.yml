@@ -8,9 +8,9 @@
        - name: launching AWS instance using Ansible
          ec2:
            key_name: <key_name>
-           instance_type: t2.micro
+           instance_type: <instance_type>
            image: <ami_Id>
-           region: region_name
+           region: <region_name>
            wait: yes
            count: 1
            vpc_subnet_id: <subnet-ID>
