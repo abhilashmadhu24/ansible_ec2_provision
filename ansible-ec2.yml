@@ -1,0 +1,26 @@
+- name: Ansible ec2 provisioning
+  hosts: localhost
+  connection: local
+  vars:
+     security_group: Jumb_server
+     Name: ansibleInstance
+  tasks:
+       - name: launching AWS instance using Ansible
+         ec2:
+           key_name: <key_name>
+           instance_type: t2.micro
+           image: <ami_Id>
+           region: region_name
+           wait: yes
+           count: 1
+           vpc_subnet_id: <subnet-ID>
+           assign_public_ip: yes
+           group: "{{ security_group }}"
+           instance_tags:
+                   Name: "{{ Name }}"
+           count_tag:
+                   Name: "{{ Name }}"
+                   exact_count: 1
+                   register: "{{ Name }}"
+           aws_access_key: AKIA6AC2xxxxxxxxxxxxxxxxxxx
+           aws_secret_key: MGGOtMC13WPxxxxxxxxxxxxxxxx
