@@ -2,7 +2,7 @@
   hosts: localhost
   connection: local
   vars:
-     security_group: Jumb_server
+     security_group: <sg_name>
      Name: ansibleInstance
   tasks:
        - name: launching AWS instance using Ansible
